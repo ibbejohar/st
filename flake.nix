@@ -32,9 +32,11 @@
         zlib
         harfbuzz
       ];
-      buildPhase = ''
-      make STCFLAGS="-I. -DVERSION=\\\"0.9.2\\\" -D_XOPEN_SOURCE=600"
-      '';
+
+buildPhase = ''
+  make CC=${pkgs.stdenv.cc.targetPrefix}cc \
+       PKG_CONFIG=${pkgs.pkg-config}/bin/pkg-config
+'';
 
       installPhase = ''
       export TERMINFO=$out/share/terminfo
