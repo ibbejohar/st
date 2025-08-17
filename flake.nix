@@ -33,10 +33,10 @@
         harfbuzz
       ];
 
-buildPhase = ''
-  make CC=${pkgs.stdenv.cc.targetPrefix}cc \
-       PKG_CONFIG=${pkgs.pkg-config}/bin/pkg-config
-'';
+      buildPhase = ''
+      make CC=${pkgs.stdenv.cc.targetPrefix}cc \
+      PKG_CONFIG=${pkgs.pkg-config}/bin/pkg-config
+      '';
 
       installPhase = ''
       export TERMINFO=$out/share/terminfo
